@@ -1,0 +1,87 @@
+{
+	"info": {
+		"name": "Roteirização Logística",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar cliente",
+			"request": {
+				"method": "POST",
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Cliente Teste\",\n  \"email\": \"cliente@email.com\",\n  \"telefone\": \"11999999999\",\n  \"endereco\": \"Rua das Flores, 100\",\n  \"cidade\": \"São Paulo\",\n  \"cep\": \"01001000\",\n  \"latitude\": -23.55052,\n  \"longitude\": -46.633308\n}"
+				},
+				"url": "http://localhost:8080/api/clientes"
+			}
+		},
+		{
+			"name": "Cadastrar motorista",
+			"request": {
+				"method": "POST",
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"José Motorista\",\n  \"cnh\": \"12345678900\",\n  \"telefone\": \"11988887777\"\n}"
+				},
+				"url": "http://localhost:8080/api/motoristas"
+			}
+		},
+		{
+			"name": "Cadastrar veículo",
+			"request": {
+				"method": "POST",
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"placa\": \"ABC1D23\",\n  \"modelo\": \"Caminhão Delivery\",\n  \"capacidadePeso\": 3000,\n  \"capacidadeEntregas\": 50\n}"
+				},
+				"url": "http://localhost:8080/api/veiculos"
+			}
+		},
+		{
+			"name": "Cadastrar entrega 1",
+			"request": {
+				"method": "POST",
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"clienteId\": 1,\n  \"endereco\": \"Av. Paulista, 1000\",\n  \"cidade\": \"São Paulo\",\n  \"cep\": \"01310100\",\n  \"latitude\": -23.561414,\n  \"longitude\": -46.655881,\n  \"peso\": 12.5,\n  \"observacao\": \"Entregar no comercial\"\n}"
+				},
+				"url": "http://localhost:8080/api/entregas"
+			}
+		},
+		{
+			"name": "Cadastrar entrega 2",
+			"request": {
+				"method": "POST",
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"clienteId\": 1,\n  \"endereco\": \"Rua Augusta, 500\",\n  \"cidade\": \"São Paulo\",\n  \"cep\": \"01305000\",\n  \"latitude\": -23.555771,\n  \"longitude\": -46.662014,\n  \"peso\": 8.0\n}"
+				},
+				"url": "http://localhost:8080/api/entregas"
+			}
+		},
+		{
+			"name": "Criar rota",
+			"request": {
+				"method": "POST",
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"motoristaId\": 1,\n  \"veiculoId\": 1,\n  \"data\": \"2026-09-14\",\n  \"entregaIds\": [1, 2]\n}"
+				},
+				"url": "http://localhost:8080/api/rotas"
+			}
+		},
+		{
+			"name": "Listar rotas",
+			"request": {
+				"method": "GET",
+				"url": "http://localhost:8080/api/rotas"
+			}
+		}
+	]
+}
